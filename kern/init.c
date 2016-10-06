@@ -32,7 +32,8 @@ i386_init(void)
 	// Initialize the console.
 	// Can't call cprintf until after we do this!
 	cons_init();
-
+	//int x = 1, y = 3, z = 4;
+	//cprintf("x %d, y %x, z %d\n", x, y, z);
 	cprintf("6828 decimal is %o octal!\n", 6828);
 
 	// Test the stack backtrace function (lab 1 only)
@@ -64,7 +65,7 @@ _panic(const char *file, int line, const char *fmt,...)
 	panicstr = fmt;
 
 	// Be extra sure that the machine is in as reasonable state
-	asm volatile("cli; cld");
+	__asm __volatile("cli; cld");
 
 	va_start(ap, fmt);
 	cprintf("kernel panic at %s:%d: ", file, line);
