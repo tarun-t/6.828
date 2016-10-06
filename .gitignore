@@ -16,4 +16,4 @@
 /sol?/
 /myapi.key
 *~
-**.c~
+/kern/*.c~
